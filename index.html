@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Wagh Technologies - Web development, digital solutions and college project guidance.">
+<title>Wagh Technologies | Digital Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root{--bg:#080808;--card:#141414;--text:#fff;--muted:#aaa;--gold:#d4af37;--border:#292929;--icon-bg:#fff;--icon-color:#000}
+body.light-mode{--bg:#f7f7f7;--card:#fff;--text:#111;--muted:#666;--border:#ddd;--icon-bg:#000;--icon-color:#fff}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:Inter,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;transition:background .3s,color .3s}
+a{text-decoration:none;color:inherit}
+.container{width:90%;max-width:1150px;margin:auto}
+header{position:sticky;top:0;z-index:1000;background:var(--bg);border-bottom:1px solid var(--border)}
+.navbar{min-height:75px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:23px;font-weight:800;letter-spacing:1px}.logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:22px;list-style:none}
+.nav-links a{font-size:13px;font-weight:600;transition:.3s}.nav-links a:hover{color:var(--gold)}
+.nav-actions{display:flex;align-items:center;gap:15px}
+.theme-btn,.menu-btn{background:none;color:var(--text);border:0;font-size:19px;cursor:pointer}
+.menu-btn{display:none}
+.section{padding:85px 0}
+.section-heading{text-align:center;margin-bottom:45px}
+.section-heading span{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:3px}
+.section-heading h2{font-size:34px;margin:8px 0}
+.section-heading p{color:var(--muted);font-size:14px}
+.gold{color:var(--gold)}
+.btn,.btn-outline{display:inline-block;padding:12px 25px;border-radius:5px;font-size:13px;font-weight:700;transition:.3s}
+.btn{background:var(--gold);color:#000;border:1px solid var(--gold)}
+.btn:hover{background:transparent;color:var(--gold)}
+.btn-outline{border:1px solid var(--gold);color:var(--gold)}
+.btn-outline:hover{background:var(--gold);color:#000}
+.hero{min-height:590px;display:flex;align-items:center;background:radial-gradient(circle at 80% 40%,rgba(212,175,55,.10),transparent 35%)}
+.hero-content{max-width:750px;padding:90px 0}
+.hero-tag{display:inline-block;padding:7px 15px;border:1px solid var(--gold);border-radius:30px;color:var(--gold);font-size:12px;margin-bottom:22px}
+.hero h1{font-size:clamp(38px,6vw,65px);line-height:1.15;margin-bottom:20px}
+.hero p{max-width:600px;color:var(--muted);margin-bottom:30px}
+.hero-buttons{display:flex;gap:15px;flex-wrap:wrap}
+.about-grid{display:grid;grid-template-columns:1.618fr 1fr;gap:45px;align-items:center}
+.about-text h2{font-size:32px;margin-bottom:18px}.about-text p{color:var(--muted);margin-bottom:15px}
+.about-box{padding:30px;background:var(--card);border:1px solid var(--border);border-radius:10px;text-align:center}
+.about-box h3{color:var(--gold);font-size:35px}.about-box p{color:var(--muted);font-size:13px}
+.services-grid,.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.service-card,.project-card{padding:28px;background:var(--card);border:1px solid var(--border);border-radius:10px;transition:.3s}
+.service-card:hover,.project-card:hover{transform:translateY(-5px);border-color:var(--gold)}
+.icon-box,.developer-icon{width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:var(--icon-bg);color:var(--icon-color);border-radius:50%;font-size:21px;margin-bottom:20px;flex-shrink:0}
+.service-card h3,.project-card h3{font-size:17px;margin-bottom:10px}
+.service-card p,.project-card p{color:var(--muted);font-size:13px}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why-card{text-align:center;padding:25px;background:var(--card);border:1px solid var(--border);border-radius:10px}
+.why-card .icon-box{margin:0 auto 15px}.why-card h3{font-size:16px;margin-bottom:8px}.why-card p{color:var(--muted);font-size:13px}
+.project-card .icon-box{margin-bottom:12px}
+.developer-card{display:flex;align-items:center;gap:30px;padding:35px;background:var(--card);border:1px solid var(--border);border-radius:12px}
+.developer-icon{width:90px;height:90px;font-size:35px;margin:0}
+.developer-info h3{font-size:25px;margin-bottom:5px}.developer-info .role{color:var(--gold);font-size:13px;margin-bottom:12px}
+.developer-info p{color:var(--muted);font-size:14px;margin-bottom:18px}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.process-card{text-align:center;padding:25px 15px;border:1px solid var(--border);border-radius:10px;background:var(--card)}
+.process-number{width:42px;height:42px;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;border-radius:50%;background:var(--gold);color:#000;font-weight:800}
+.process-card h3{font-size:15px;margin-bottom:7px}.process-card p{font-size:12px;color:var(--muted)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}
+.contact-info h3{font-size:25px;margin-bottom:15px}.contact-info p{color:var(--muted);margin-bottom:20px;font-size:14px}
+.contact-item{display:flex;align-items:center;gap:15px;margin-bottom:20px}
+.contact-item .icon-box{width:43px;height:43px;margin:0;font-size:17px}
+.contact-item small{color:var(--muted);display:block}
+.contact-form{padding:28px;background:var(--card);border:1px solid var(--border);border-radius:10px}
+.contact-form input,.contact-form textarea,.contact-form select{width:100%;padding:13px;margin-bottom:15px;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:5px;font-family:inherit;outline:none}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:var(--gold)}
+.contact-form textarea{height:120px;resize:vertical}.contact-form button{width:100%;cursor:pointer}
+footer{padding:35px 0;border-top:1px solid var(--border);text-align:center}
+footer p{color:var(--muted);font-size:12px}
+.social-links{display:flex;justify-content:center;gap:20px;margin:18px 0}
+.social-links a{width:38px;height:38px;display:flex;justify-content:center;align-items:center;border:1px solid var(--border);border-radius:50%;font-size:16px;transition:.3s}
+.social-links a:hover{background:var(--icon-bg);color:var(--icon-color)}
+.whatsapp{position:fixed;bottom:22px;right:22px;width:52px;height:52px;display:flex;justify-content:center;align-items:center;border-radius:50%;background:#fff;color:#000;font-size:25px;box-shadow:0 3px 15px #0005;z-index:999}
+@media(max-width:900px){.nav-links{gap:12px}.nav-links a{font-size:11px}.services-grid,.projects-grid{grid-template-columns:repeat(2,1fr)}.process-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.menu-btn{display:block}.nav-links{position:absolute;top:75px;left:0;width:100%;display:none;flex-direction:column;align-items:flex-start;gap:0;padding:15px 5%;background:var(--bg);border-bottom:1px solid var(--border)}.nav-links.active{display:flex}.nav-links li{width:100%}.nav-links a{display:block;padding:12px 0;font-size:14px}.about-grid,.contact-grid{grid-template-columns:1fr}.services-grid,.projects-grid,.why-grid{grid-template-columns:1fr}.developer-card{flex-direction:column;align-items:flex-start}.section{padding:65px 0}.section-heading h2{font-size:27px}}
+@media(max-width:450px){.process-grid{grid-template-columns:1fr}.hero h1{font-size:39px}}
+</style>
+</head>
+<body>
+<header>
+<div class="container navbar">
+<a href="#home" class="logo">WAGH<span>TECHNOLOGIES</span></a>
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#college-projects">College Projects</a></li><li><a href="#projects">Projects</a></li><li><a href="#developer">Developer</a></li><li><a href="#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-btn" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+<button class="menu-btn" id="menuBtn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+</div>
+</div>
+</header>
+
+<section class="hero" id="home"><div class="container"><div class="hero-content">
+<span class="hero-tag">WELCOME TO WAGH TECHNOLOGIES</span>
+<h1>Building Digital<br><span class="gold">Experiences</span> That Matter.</h1>
+<p>We create modern websites, digital solutions and practical technology projects that help businesses and students move forward.</p>
+<div class="hero-buttons"><a href="#services" class="btn">Explore Services</a><a href="#contact" class="btn-outline">Start a Project</a></div>
+</div></div></section>
+
+<section class="section" id="about"><div class="container">
+<div class="section-heading"><span>WHO WE ARE</span><h2>About Wagh Technologies</h2><p>Technology, creativity and practical digital solutions.</p></div>
+<div class="about-grid"><div class="about-text">
+<h2>We Turn Your <span class="gold">Ideas Into Reality</span></h2>
+<p>Wagh Technologies is a digital service initiative focused on website development, web solutions and technology-based project support.</p>
+<p>Our goal is to create simple, responsive and user-friendly digital experiences for businesses, individuals and students.</p>
+<a href="#contact" class="btn">Contact Us</a>
+</div><div class="about-box"><h3>100%</h3><p>Focus on Quality and User Experience</p><hr style="border:0;border-top:1px solid var(--border);margin:20px 0"><h3>24/7</h3><p>Online Project Enquiry</p></div></div>
+</div></section>
+
+<section class="section" id="services"><div class="container">
+<div class="section-heading"><span>WHAT WE DO</span><h2>Our Services</h2><p>Simple and effective digital services.</p></div>
+<div class="services-grid">
+<div class="service-card"><div class="icon-box"><i class="fas fa-code"></i></div><h3>Website Development</h3><p>Modern, responsive and professional websites for businesses and individuals.</p></div>
+<div class="service-card"><div class="icon-box"><i class="fas fa-laptop"></i></div><h3>Web Applications</h3><p>Functional web applications designed around your requirements.</p></div>
+<div class="service-card"><div class="icon-box"><i class="fas fa-mobile-screen"></i></div><h3>Responsive Design</h3><p>Mobile-friendly website experiences for different screen sizes.</p></div>
+<div class="service-card"><div class="icon-box"><i class="fas fa-palette"></i></div><h3>UI/UX Design</h3><p>Clean, simple and user-friendly interface design.</p></div>
+<div class="service-card"><div class="icon-box"><i class="fas fa-cloud"></i></div><h3>Website Hosting</h3><p>Website deployment and hosting support for your online presence.</p></div>
+<div class="service-card"><div class="icon-box"><i class="fas fa-screwdriver-wrench"></i></div><h3>Website Maintenance</h3><p>Website updates, improvements and basic technical support.</p></div>
+</div></div></section>
+
+<section class="section" id="college-projects"><div class="container">
+<div class="section-heading"><span>STUDENT DEVELOPMENT</span><h2>College Projects for Tech Students</h2><p>Learn technology through practical projects and guidance.</p></div>
+<div class="services-grid">
+<div class="service-card"><div class="icon-box"><i class="fas fa-globe"></i></div><h3>Web Development Projects</h3><p>Practical projects using HTML, CSS, JavaScript and PHP.</p></div>
+<div class="service-card"><div class="icon-box"><i class="fas fa-mobile-alt"></i></div><h3>Android Projects</h3><p>Mobile application development and project guidance.</p></div>
+<div class="service-card"><div class="icon-box"><i class="fas fa-database"></i></div><h3>Database Projects</h3><p>MySQL, DBMS and database-driven application projects.</p></div>
+<div class="service-card"><div class="icon-box"><i class="fas fa-terminal"></i></div><h3>Programming Projects</h3><p>C, C++, Java and Python programming projects.</p></div>
+<div class="service-card"><div class="icon-box"><i class="fas fa-cloud"></i></div><h3>Cloud Technology</h3><p>Cloud computing fundamentals and deployment projects.</p></div>
+<div class="service-card"><div class="icon-box"><i class="fas fa-graduation-cap"></i></div><h3>Project Guidance</h3><p>Project planning, documentation, implementation and technical explanations.</p></div>
+</div></div></section>
+
+<section class="section" id="why-us"><div class="container">
+<div class="section-heading"><span>OUR ADVANTAGES</span><h2>Why Choose Us?</h2><p>We focus on quality, simplicity and practical solutions.</p></div>
+<div class="why-grid">
+<div class="why-card"><div class="icon-box"><i class="fas fa-bolt"></i></div><h3>Modern Solutions</h3><p>We use modern web technologies to build useful digital experiences.</p></div>
+<div class="why-card"><div class="icon-box"><i class="fas fa-handshake"></i></div><h3>Client Focused</h3><p>We understand requirements and work towards client expectations.</p></div>
+<div class="why-card"><div class="icon-box"><i class="fas fa-shield-halved"></i></div><h3>Quality Work</h3><p>We aim for clean design, responsive layouts and reliable delivery.</p></div>
+</div></div></section>
+
+<section class="section" id="projects"><div class="container">
+<div class="section-heading"><span>OUR WORK</span><h2>Featured Projects</h2><p>Explore some of the project categories we work on.</p></div>
+<div class="projects-grid">
+<div class="project-card"><div class="icon-box"><i class="fas fa-shopping-cart"></i></div><h3>Business Websites</h3><p>Professional websites for businesses, agencies and startups.</p></div>
+<div class="project-card"><div class="icon-box"><i class="fas fa-user-graduate"></i></div><h3>Student Projects</h3><p>Academic and practical projects for technology students.</p></div>
+<div class="project-card"><div class="icon-box"><i class="fas fa-layer-group"></i></div><h3>Web Applications</h3><p>Custom web-based solutions for different requirements.</p></div>
+</div></div></section>
+
+<section class="section" id="developer"><div class="container">
+<div class="section-heading"><span>OUR DEVELOPER</span><h2>Meet the Developer</h2><p>Meet the developer behind our digital solutions.</p></div>
+<div class="developer-card">
+<div class="developer-icon"><i class="fas fa-code"></i></div>
+<div class="developer-info"><h3>Vinay Kumar VK</h3><div class="role">Web Developer | Freelancer | Technology Enthusiast</div>
+<p>Passionate about web development and building practical digital experiences. Explore the developer's portfolio to learn more about skills, projects and work.</p>
+<a href="https://vinay-kumar-vk.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn">View Developer Portfolio <i class="fas fa-arrow-up-right-from-square"></i></a>
+</div></div></div></section>
+
+<section class="section" id="process"><div class="container">
+<div class="section-heading"><span>HOW WE WORK</span><h2>Our Work Process</h2><p>A simple approach to every project.</p></div>
+<div class="process-grid">
+<div class="process-card"><div class="process-number">01</div><h3>Discussion</h3><p>Understand your ideas and project requirements.</p></div>
+<div class="process-card"><div class="process-number">02</div><h3>Planning</h3><p>Prepare the project structure and development plan.</p></div>
+<div class="process-card"><div class="process-number">03</div><h3>Development</h3><p>Build and test the required digital solution.</p></div>
+<div class="process-card"><div class="process-number">04</div><h3>Delivery</h3><p>Complete the project and deliver it to the client.</p></div>
+</div></div></section>
+
+<section class="section" id="contact"><div class="container">
+<div class="section-heading"><span>GET IN TOUCH</span><h2>Let's Work Together</h2><p>Have an idea? Tell us about your project.</p></div>
+<div class="contact-grid">
+<div class="contact-info"><h3>Let's Discuss Your <span class="gold">Project</span></h3><p>Contact us for website development, digital solutions or college project guidance.</p>
+<div class="contact-item"><div class="icon-box"><i class="fas fa-envelope"></i></div><div><small>Email</small><a href="mailto:yourmail@example.com">yourmail@example.com</a></div></div>
+<div class="contact-item"><div class="icon-box"><i class="fas fa-phone"></i></div><div><small>Phone</small><span>+91 XXXXXXXXXX</span></div></div>
+<div class="contact-item"><div class="icon-box"><i class="fas fa-location-dot"></i></div><div><small>Service</small><span>Online Digital Services</span></div></div>
+</div>
+<form class="contact-form" id="contactForm">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="email" id="email" placeholder="Your Email" required>
+<select id="service" required><option value="">Select a Service</option><option>Website Development</option><option>Web Application</option><option>College Project</option><option>Android Project</option><option>Other</option></select>
+<textarea id="message" placeholder="Tell us about your project..." required></textarea>
+<button type="submit" class="btn">Send Enquiry <i class="fas fa-paper-plane"></i></button>
+</form>
+</div></div></section>
+
+<footer><div class="container">
+<a href="#home" class="logo">WAGH<span>TECHNOLOGIES</span></a>
+<div class="social-links">
+<a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+<a href="mailto:yourmail@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+</div>
+<p>© <span id="year"></span> Wagh Technologies. All Rights Reserved.</p>
+<p style="margin-top:5px">Designed with purpose. Built with technology.</p>
+</div></footer>
+
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+const menuBtn=document.getElementById("menuBtn");
+const navLinks=document.getElementById("navLinks");
+menuBtn.addEventListener("click",()=>{
+ navLinks.classList.toggle("active");
+ const icon=menuBtn.querySelector("i");
+ if(navLinks.classList.contains("active")){icon.classList.replace("fa-bars","fa-xmark")}
+ else{icon.classList.replace("fa-xmark","fa-bars")}
+});
+document.querySelectorAll(".nav-links a").forEach(link=>link.addEventListener("click",()=>{
+ navLinks.classList.remove("active");
+ const icon=menuBtn.querySelector("i");
+ icon.classList.remove("fa-xmark");icon.classList.add("fa-bars");
+}));
+const themeToggle=document.getElementById("themeToggle");
+function applyTheme(theme){
+ document.body.classList.toggle("light-mode",theme==="light");
+ themeToggle.innerHTML=theme==="light"?'<i class="fas fa-moon"></i>':'<i class="fas fa-sun"></i>';
+}
+themeToggle.addEventListener("click",()=>{
+ const next=document.body.classList.contains("light-mode")?"dark":"light";
+ applyTheme(next);localStorage.setItem("websiteTheme",next);
+});
+applyTheme(localStorage.getItem("websiteTheme")==="light"?"light":"dark");
+document.getElementById("contactForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const name=document.getElementById("name").value.trim();
+ const email=document.getElementById("email").value.trim();
+ const service=document.getElementById("service").value;
+ const message=document.getElementById("message").value.trim();
+ const subject=encodeURIComponent("New Project Enquiry - "+service);
+ const body=encodeURIComponent("Name: "+name+"\nEmail: "+email+"\nService: "+service+"\n\nProject Details:\n"+message);
+ window.location.href="mailto:yourmail@example.com?subject="+subject+"&body="+body;
+});
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
