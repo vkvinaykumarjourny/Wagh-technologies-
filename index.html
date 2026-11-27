@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wagh Technologies | Digital Freelancing Agency</title>
+
+<style>
+
+/* THEME VARIABLES */
+
+:root {
+    --bg: #f8f8f6;
+    --surface: #ffffff;
+    --text: #171717;
+    --muted: #666666;
+    --gold: #c49a45;
+    --border: #e8e3d9;
+    --nav: rgba(255,255,255,0.94);
+    --shadow: 0 8px 30px rgba(0,0,0,0.05);
+}
+
+body.dark {
+    --bg: #101010;
+    --surface: #191919;
+    --text: #f5f5f5;
+    --muted: #aaaaaa;
+    --gold: #e1b65b;
+    --border: #303030;
+    --nav: rgba(16,16,16,0.95);
+    --shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background .3s, color .3s;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin: auto;
+}
+
+/* HEADER */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--nav);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    color: var(--muted);
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.theme-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 9px 13px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* COMMON SECTIONS */
+
+section {
+    padding: 90px 0;
+    scroll-margin-top: 70px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.tag {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.section-heading h2 {
+    font-size: clamp(27px, 4vw, 38px);
+    margin: 10px 0;
+    letter-spacing: -1px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* BUTTON */
+
+.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #111;
+    padding: 13px 25px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    opacity: .9;
+}
+
+/* HERO */
+
+#home {
+    min-height: 590px;
+    display: flex;
+    align-items: center;
+    background:
+    radial-gradient(circle at 80% 30%,
+    rgba(196,154,69,.13), transparent 35%);
+}
+
+.hero-content {
+    max-width: 760px;
+}
+
+.hero-label {
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.hero-content h1 {
+    font-size: clamp(40px, 7vw, 70px);
+    line-height: 1.12;
+    letter-spacing: -3px;
+    margin: 25px 0;
+}
+
+.hero-content h1 span {
+    color: var(--gold);
+}
+
+.hero-content p {
+    max-width: 560px;
+    color: var(--muted);
+    font-size: 17px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+/* ABOUT */
+
+#about {
+    background: var(--surface);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.618fr 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.about-text h3 {
+    font-size: 27px;
+    margin-bottom: 18px;
+}
+
+.about-text p {
+    color: var(--muted);
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.about-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.about-box h3 {
+    color: var(--gold);
+    font-size: 35px;
+}
+
+.about-box p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+/* SERVICES GRID */
+
+#services {
+    background: var(--bg);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+    background: var(--surface);
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    transition: .3s;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+}
+
+.service-icon {
+    font-size: 27px;
+    margin-bottom: 17px;
+}
+
+.service-card h3 {
+    font-size: 17px;
+    margin-bottom: 9px;
+}
+
+.service-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* WHY US */
+
+#choose {
+    background: var(--surface);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.feature {
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.feature h3 {
+    font-size: 15px;
+    margin: 12px 0 7px;
+}
+
+.feature p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* PROJECTS */
+
+#projects {
+    background: var(--bg);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-image {
+    height: 160px;
+    background: linear-gradient(135deg,#222,#555);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--gold);
+    font-size: 45px;
+}
+
+.project-info {
+    padding: 22px;
+}
+
+.project-info h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.project-info p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* PROCESS */
+
+#process {
+    background: var(--surface);
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.process-card {
+    padding: 20px;
+    border-left: 2px solid var(--gold);
+    text-align: left;
+}
+
+.process-card span {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.process-card h3 {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.process-card p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* CONTACT */
+
+#contact {
+    background: var(--bg);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+}
+
+.contact-info h3 {
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.contact-info a {
+    color: var(--gold);
+}
+
+.contact-form {
+    background: var(--surface);
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 15px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 4px;
+    outline: none;
+}
+
+.contact-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.contact-form button {
+    border: none;
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+    background: #111;
+    color: #eee;
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer span {
+    color: #d6ad58;
+}
+
+footer p {
+    font-size: 13px;
+}
+
+/* WHATSAPP */
+
+.whatsapp {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    background: #25d366;
+    color: white;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 24px;
+    z-index: 1000;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 850px) {
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        background: var(--surface);
+        flex-direction: column;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-grid,
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-grid,
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 550px) {
+
+    section {
+        padding: 65px 0;
+    }
+
+    #home {
+        min-height: 530px;
+    }
+
+    .hero-content h1 {
+        letter-spacing: -1.5px;
+    }
+
+    .service-grid,
+    .project-grid,
+    .feature-grid,
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        min-height: 68px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+<div class="container navbar">
+
+    <a href="#home" class="logo">
+        WAGH <span>TECHNOLOGIES.</span>
+    </a>
+
+    <div style="display:flex;align-items:center;gap:15px;">
+
+        <button class="theme-btn" id="themeBtn"
+        onclick="toggleTheme()">🌙</button>
+
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#choose">Why Us</a>
+        <a href="#projects">Projects</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+</div>
+</header>
+
+
+<!-- HOME -->
+
+<section id="home">
+
+<div class="container">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            DIGITAL SOLUTIONS & WEB DEVELOPMENT
+        </div>
+
+        <h1>
+            We Build Digital<br>
+            Experiences That<br>
+            <span>Drive Growth.</span>
+        </h1>
+
+        <p>
+            Wagh Technologies helps businesses and individuals
+            build their digital presence through modern websites,
+            creative designs and reliable web solutions.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#contact" class="btn">
+                Start Your Project →
+            </a>
+
+            <a href="#projects" class="btn btn-outline">
+                Explore Projects
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+    <div class="section-heading">
+        <span class="tag">WHO WE ARE</span>
+        <h2>About Wagh Technologies</h2>
+        <p>Your trusted partner for digital growth.</p>
+    </div>
+
+    <div class="about-grid">
+
+        <div class="about-text">
+
+            <h3>Turning Ideas Into Digital Reality.</h3>
+
+            <p>
+                Wagh Technologies is a freelancing web development
+                agency focused on building modern, responsive and
+                professional websites.
+            </p>
+
+            <p>
+                We help startups, businesses and individuals
+                establish their online presence through creative
+                design and effective web development.
+            </p>
+
+            <p>
+                Our goal is to provide quality digital solutions
+                that combine functionality, creativity and
+                excellent user experience.
+            </p>
+
+        </div>
+
+        <div class="about-box">
+
+            <h3>Our Mission</h3>
+
+            <p>
+                To transform business ideas into powerful
+                digital experiences.
+            </p>
+
+            <h3>Our Vision</h3>
+
+            <p>
+                To become a trusted digital partner for
+                businesses and individuals.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="container">
+
+    <div class="section-heading">
+        <span class="tag">WHAT WE DO</span>
+        <h2>Our Services</h2>
+        <p>Smart digital solutions for modern businesses.</p>
+    </div>
+
+    <div class="service-grid">
+
+        <div class="service-card">
+            <div class="service-icon">💻</div>
+            <h3>Web Development</h3>
+            <p>Professional and functional websites for your business.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">📱</div>
+            <h3>Responsive Design</h3>
+            <p>Websites optimized for mobile, tablet and desktop.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🎨</div>
+            <h3>UI/UX Design</h3>
+            <p>Clean interfaces and user-friendly experiences.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🚀</div>
+            <h3>Landing Pages</h3>
+            <p>Modern landing pages to promote products and services.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🌐</div>
+            <h3>Portfolio Websites</h3>
+            <p>Personal websites to showcase skills and achievements.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">⚙️</div>
+            <h3>Website Maintenance</h3>
+            <p>Updates, bug fixing and website improvements.</p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- WHY CHOOSE US -->
+
+<section id="choose">
+
+<div class="container">
+
+    <div class="section-heading">
+        <span class="tag">OUR ADVANTAGES</span>
+        <h2>Why Choose Us?</h2>
+        <p>Building trust through quality and commitment.</p>
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature">
+            <div class="service-icon">⭐</div>
+            <h3>Quality First</h3>
+            <p>Professional work with attention to detail.</p>
+        </div>
+
+        <div class="feature">
+            <div class="service-icon">💰</div>
+            <h3>Affordable</h3>
+            <p>Budget-friendly digital solutions.</p>
+        </div>
+
+        <div class="feature">
+            <div class="service-icon">⏰</div>
+            <h3>On-Time Delivery</h3>
+            <p>Respecting deadlines and commitments.</p>
+        </div>
+
+        <div class="feature">
+            <div class="service-icon">🤝</div>
+            <h3>Client Support</h3>
+            <p>Clear communication and assistance.</p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="container">
+
+    <div class="section-heading">
+        <span class="tag">OUR WORK</span>
+        <h2>Featured Projects</h2>
+        <p>Explore our website development categories.</p>
+    </div>
+
+    <div class="project-grid">
+
+        <div class="project-card">
+            <div class="project-image">🏢</div>
+            <div class="project-info">
+                <h3>Business Website</h3>
+                <p>Professional business website solutions.</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">👨‍💻</div>
+            <div class="project-info">
+                <h3>Portfolio Website</h3>
+                <p>Personal portfolios for professionals.</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">🛒</div>
+            <div class="project-info">
+                <h3>Landing Page</h3>
+                <p>Modern product and service landing pages.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- PROCESS -->
+
+<section id="process">
+
+<div class="container">
+
+    <div class="section-heading">
+        <span class="tag">HOW WE WORK</span>
+        <h2>Our Work Process</h2>
+        <p>From the first idea to the final launch.</p>
+    </div>
+
+    <div class="process-grid">
+
+        <div class="process-card">
+            <span>01 / DISCOVER</span>
+            <h3>Discussion</h3>
+            <p>Understanding your requirements and goals.</p>
+        </div>
+
+        <div class="process-card">
+            <span>02 / PLAN</span>
+            <h3>Planning</h3>
+            <p>Preparing the structure and design strategy.</p>
+        </div>
+
+        <div class="process-card">
+            <span>03 / CREATE</span>
+            <h3>Development</h3>
+            <p>Building and testing your website.</p>
+        </div>
+
+        <div class="process-card">
+            <span>04 / LAUNCH</span>
+            <h3>Delivery</h3>
+            <p>Launching and delivering the completed project.</p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+    <div class="section-heading">
+        <span class="tag">GET IN TOUCH</span>
+        <h2>Let's Build Something Great.</h2>
+        <p>Have an idea? Let's discuss your next project.</p>
+    </div>
+
+    <div class="contact-grid">
+
+        <div class="contact-info">
+
+            <h3>Let's Talk About Your Project.</h3>
+
+            <p>
+                Tell us about your requirements.
+                We would love to help bring your ideas to life.
+            </p>
+
+            <p>
+                Email:<br>
+                <a href="mailto:yourmail@example.com">
+                    yourmail@example.com
+                </a>
+            </p>
+
+            <p>
+                Phone:<br>
+                +91 8431452355
+            </p>
+
+            <p>
+                Location:<br>
+                Mysuru
+            </p>
+
+        </div>
+
+        <form class="contact-form" id="contactForm">
+
+            <input type="text" id="name"
+            placeholder="Your Name" required>
+
+            <input type="email" id="email"
+            placeholder="Your Email" required>
+
+            <input type="text" id="subject"
+            placeholder="Project Subject" required>
+
+            <textarea id="message"
+            placeholder="Tell us about your project"
+            required></textarea>
+
+            <button type="submit" class="btn">
+                Send Enquiry →
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+    <p>
+        © 2026 <span>Wagh Technologies</span>.
+        All Rights Reserved.
+    </p>
+
+    <p style="margin-top:8px;">
+        Turning Ideas Into Digital Experiences.
+    </p>
+
+</div>
+
+</footer>
+
+
+<!-- WHATSAPP -->
+
+<a href="https://wa.me/918431452355"
+class="whatsapp"
+target="_blank"
+aria-label="WhatsApp">✆</a>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// MOBILE MENU
+
+function toggleMenu() {
+
+    document.getElementById("navLinks")
+    .classList.toggle("active");
+
+}
+
+
+// CLOSE MENU AFTER CLICK
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        document.getElementById("navLinks")
+        .classList.remove("active");
+
+    });
+
+});
+
+
+// DARK AND LIGHT MODE
+
+const themeBtn = document.getElementById("themeBtn");
+
+function applyTheme(theme) {
+
+    document.body.classList.toggle("dark", theme === "dark");
+
+    themeBtn.textContent =
+        theme === "dark" ? "☀️" : "🌙";
+
+    localStorage.setItem("waghTheme", theme);
+
+}
+
+function toggleTheme() {
+
+    const newTheme =
+        document.body.classList.contains("dark")
+        ? "light"
+        : "dark";
+
+    applyTheme(newTheme);
+
+}
+
+// LOAD SAVED THEME
+
+applyTheme(localStorage.getItem("waghTheme") || "light");
+
+
+// CONTACT FORM
+
+document.getElementById("contactForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
+
+    const receiver = "yourmail@example.com";
+
+    const body =
+        "Name: " + name +
+        "\nEmail: " + email +
+        "\nSubject: " + subject +
+        "\nMessage: " + message;
+
+    const mailURL =
+        "mailto:" + receiver +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+    window.location.href = mailURL;
+
+});
+
+</script>
+
+</body>
+  </html>
